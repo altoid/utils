@@ -86,7 +86,7 @@ def _single_successor(n, width):
     return result
 
 
-def same_bits_successors(n, width):
+def constant_bits_successors(n, width):
     s = n
     while s is not None:
         yield s
