@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 # not part of prime bits solution, but related fun problem:  given a positive integer, find the next
 # largest number with the same number of bits set.  so if we are given this:
 #
