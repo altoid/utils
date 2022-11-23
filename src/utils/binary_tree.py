@@ -1,11 +1,43 @@
 from collections import deque
 import pickle
 
+
 class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
+
+
+def make_tree(arr):
+    """
+    make a binary tree out of a list of values, some of which may be None.  example:
+
+    [5,3,6,2,4,None, None,1]
+
+    5 is the root.  the rest of the nodes are given in breadth-first order.
+    """
+
+    if not arr:
+        return None
+
+    nodes = list(map(lambda x: None if x is None else TreeNode(x), arr))
+
+    root = nodes[0]
+    length = len(arr)
+    for i in range(length):
+        if not nodes[i]:
+            continue
+
+        l = 2 * i + 1
+        r = l + 1
+        if l < length and nodes[l]:
+            nodes[i].left = nodes[l]
+
+        if r < length and nodes[r]:
+            nodes[i].right = nodes[r]
+
+    return root
 
 
 class DecoratedTreeNode:
